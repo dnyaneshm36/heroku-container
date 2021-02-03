@@ -35,9 +35,9 @@ test:
     DATABASE_URL: postgres://runner@postgres:5432/test
   script:
     - python manage.py test
-    - flake8 hello_django --max-line-length=100
-    - black hello_django --check
-    - isort hello_django --check
+    - flake8 docker_rest --max-line-length=100
+    - black docker_rest --check
+    - isort docker_rest --check
 
 deploy:
   stage: deploy
