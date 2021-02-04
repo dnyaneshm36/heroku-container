@@ -14,8 +14,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf.urls import url,include
 from django.urls import path
+from django.conf import settings
 
 from .views import ping
 
-urlpatterns = [path("admin/", admin.site.urls), path("ping/", ping, name="ping")]
+urlpatterns = [	
+			url(r'^', include('docker_rest.swagger_urls')),
+			
+			path("admin/", admin.site.urls),
+			path("ping/", ping, name="ping"),
+			path('api-auth/', include('rest_framework.urls')),
+			path('status/', include('status.api.urls')),
+			path('friend/', include('friend.urls')),
+			path('RSA/', include('RSA_prime.urls')),
+			path('users/', include('showuser.urls')),
+			path('api/auth/', include('accounts.api.urls')),
+    		path('api/user/', include(('accounts.api.user.urls', 'accounts' ),namespace= 'api-user')),
+    		
+    			 
+		
+		
+]

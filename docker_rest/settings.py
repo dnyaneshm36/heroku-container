@@ -40,6 +40,22 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    
+        #third
+        'rest_framework',
+        'django_filters',
+         
+        'drf_yasg',
+
+     #for anotheer project  
+     'RSA_prime',
+
+    #local 
+    'status',
+    'friend',
+
+    'showuser',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -115,3 +131,9 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
+
+
+
+from docker_rest.restconfig.main import *
