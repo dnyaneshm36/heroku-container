@@ -10,7 +10,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
    'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ],
-    'DEFAULT_PAGINATION_CLASS': 'docker_rest.restconfig.paginations.CLGAPIPagination'    ,
+    'DEFAULT_PAGINATION_CLASS': 'docker_rest.restconfig.paginations.CLGAPIPagination',
 
 
     

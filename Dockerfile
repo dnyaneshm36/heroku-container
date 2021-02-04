@@ -9,11 +9,14 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV DEBUG 0
 
-# install psycopg2
+# install psycopg2 and pillow 
 RUN apk update \
     && apk add --virtual build-deps gcc python3-dev musl-dev \
-    && apk add postgresql-dev zlib jpeg \
+    && apk add postgresql \
+    && apk add postgresql-dev \
     && pip install psycopg2 \
+    && apk add jpeg-dev zlib-dev libjpeg \
+    && pip install Pillow \
     && apk del build-deps
 
 # install dependencies

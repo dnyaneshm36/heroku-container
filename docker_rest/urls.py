@@ -22,7 +22,6 @@ from .views import ping
 
 urlpatterns = [	
 			url(r'^', include('docker_rest.swagger_urls')),
-			
 			path("admin/", admin.site.urls),
 			path("ping/", ping, name="ping"),
 			path('api-auth/', include('rest_framework.urls')),
@@ -31,9 +30,6 @@ urlpatterns = [
 			path('RSA/', include('RSA_prime.urls')),
 			path('users/', include('showuser.urls')),
 			path('api/auth/', include('accounts.api.urls')),
-    		path('api/user/', include(('accounts.api.user.urls', 'accounts' ),namespace= 'api-user')),
-    		
-    			 
-		
-		
+			path('api/user/', include(('accounts.api.user.urls', 'accounts'),namespace= 'api-user')),
+
 ]
