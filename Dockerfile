@@ -21,9 +21,6 @@ RUN apk update \
 # install dependencies
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
-RUN pip uninstall PIL
-RUN pip uninstall Pillow
-RUN pip install Pillow
 
 # copy project
 COPY . .

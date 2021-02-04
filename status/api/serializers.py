@@ -13,7 +13,6 @@ class StatusInlineSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'content',
-            'image',
             'uri'
         ]
         read_only_fields = ['user']
