@@ -6,7 +6,7 @@ from .models import Status
 
 
 class StatusAdmin(admin.ModelAdmin):
-    list_display= ['id','user', '__str__', 'image']
+    list_display= ['id','user', '__str__', ]
     # class Meta:
     #     model = Status
 

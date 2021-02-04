@@ -14,13 +14,16 @@ RUN apk update \
     && apk add --virtual build-deps gcc python3-dev musl-dev \
     && apk add postgresql \
     && apk add postgresql-dev \
-    && pip install psycopg2 \
     && apk add jpeg-dev zlib-dev libjpeg \
+    && pip install psycopg2 \
     && apk del build-deps
 
 # install dependencies
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
+RUN pip uninstall PIL
+RUN pip uninstall Pillow
+RUN pip install Pillow
 
 # copy project
 COPY . .
@@ -34,9 +37,3 @@ USER myuser
 
 # run gunicorn
 CMD gunicorn docker_rest.wsgi:application --bind 0.0.0.0:$PORT
-
-
-
-
-
-
