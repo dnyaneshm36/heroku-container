@@ -1,9 +1,15 @@
-build:
-  docker:
-    web: Dockerfile
-run:
-  web: gunicorn docker_rest.wsgi:application --bind 0.0.0.0:$PORT
-release:
-  image: web
-  command:
-    - python manage.py collectstatic --noinput
+version: '3'
+services:
+  monitering:
+    image: checkmk/check-mk-raw:2.0.0-latest
+    container_name: monitoring
+    tmpfs:
+      - /opt/omd/sites/cmk/tmp:uid=1000,gid=1000
+    ports:
+      - 80:5000
+    volumes:
+      - monitoring:/omd/sites
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
+volumes:
+  monitoring:
